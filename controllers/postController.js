@@ -36,5 +36,14 @@ const getPost = async (req , res)=>{
       }
 }
 
+const createPost = async(req,res)=>{
+  try {
+      const newPost = new postModel(req.body)
+      const savedPost = await newPost.save()
+      res.status(201).json({ message: "Post created successfully", Post: savedPost });
+    } catch (error) {
+      res.status(500).json({ message: "Error creating Post", error: error.message });
+    }
+}
 
-module.exports = {getAllposts , getPostBySender , getPost}
+module.exports = {getAllposts , getPostBySender , getPost , createPost}
