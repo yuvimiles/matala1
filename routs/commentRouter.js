@@ -9,4 +9,7 @@ router.get('/:id', commentController.getComment);
 
 router.post('/create', commentController.createComment);
 
+router.put('/update', commentController.updateComment);
+
+
 module.exports = router;
