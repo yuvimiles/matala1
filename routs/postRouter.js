@@ -8,4 +8,5 @@ router.get("/", postController.getPostBySender)
 
 router.get("/:id", postController.getPost)
 
+router.post("/create", postController.createPost)
 module.exports = router;
