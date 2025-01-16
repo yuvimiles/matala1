@@ -7,4 +7,6 @@ router.get('/All', commentController.getAllComments);
 
 router.get('/:id', commentController.getComment);
 
+router.post('/create', commentController.createComment);
+
 module.exports = router;
