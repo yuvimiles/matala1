@@ -43,4 +43,20 @@ const createComment = async (req, res) => {
     }
   };
 
-module.exports = { getAllComments , getComment, createComment };
+  const updateComment = async (req, res) => {
+    try {
+      const { id , text } = req.body;
+      const updatedComment = await commentModel.findByIdAndUpdate(id, {text : text}, { new: true });
+      const post = await postModel.findById(updatedComment.postId);
+      const comment = post.comments.find(comment => comment._id == id);
+      if(comment){
+        comment.text = text;
+      }
+      await post.save();
+      res.status(200).json({ message: "Comment updated successfully", comment: updatedComment });
+    } catch (error) {
+      res.status(500).json({ message: "Error updating comment", error: error.message });
+    }
+  };
+
+module.exports = { getAllComments , getComment , createComment , updateComment };
