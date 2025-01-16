@@ -25,4 +25,22 @@ const getComment = async (req, res) => {
   }
 };
 
-module.exports = { getAllComments , getComment };
+const createComment = async (req, res) => {
+    try {
+      const {postId} = req.body
+      const post = await postModel.findById(postId)
+      if(!post){
+        res.status(400).json({message : "Post not found!"});
+        return;
+      }
+      const newComment = new commentModel(req.body);
+      const savedComment = await newComment.save();
+      post.comments.push(savedComment)
+      await post.save();
+      res.status(201).json({ message: "Comment created successfully", comment: savedComment });
+    } catch (error) {
+      res.status(500).json({ message: "Error creating comment", error: error.message });
+    }
+  };
+
+module.exports = { getAllComments , getComment, createComment };
