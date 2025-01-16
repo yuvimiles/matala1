@@ -9,4 +9,7 @@ router.get("/", postController.getPostBySender)
 router.get("/:id", postController.getPost)
 
 router.post("/create", postController.createPost)
+
+router.put("/update/:id", postController.updatePost)
+
 module.exports = router;
