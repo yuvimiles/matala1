@@ -1,5 +1,5 @@
-const {postModel} = require("../model/postModel.js")
-const {commentModel} = require("../model/commentModel.js")
+const {postModel} = require("../models/postModel.js")
+const {commentModel} = require("../models/commentModel.js")
 
 const getAllposts = async (req , res)=>{
     try {

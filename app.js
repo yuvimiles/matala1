@@ -3,8 +3,8 @@ const app = express();
 const dotenv = require("dotenv").config()
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
-const usersRouter = require("./routes/usersRouter.js")
-const postsRouter = require("./routes/postsRouter.js")
+const usersRouter = require("./routes/userRouter.js")
+const postsRouter = require("./routes/postRouter.js")
 const commentRouter = require("./routes/commentRouter.js")
 const port = process.env.PORT
 

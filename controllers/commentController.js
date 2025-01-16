@@ -1,6 +1,6 @@
-const {commentModel} = require("../model/commentModel.js"); 
-const {postModel} = require("../model/postModel.js");
-const { post } = require("../routes/postsRouter.js");
+const {commentModel} = require("../models/commentModel.js"); 
+const {postModel} = require("../models/postModel.js");
+const { post } = require("../routes/postRouter.js");
 
 const getAllComments = async (req, res) => {
   try {

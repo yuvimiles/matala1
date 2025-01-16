@@ -1,63 +1,128 @@
-############################# USER #################### ### # Add a New User POST http://localhost:3000/user/create content-type: application/json
+############################# USER ####################
+###
+# Add a New User
+POST http://localhost:3000/user/create 
+Content-Type: application/json
 
 {
-
-"name" : "Yuval miles", "email" : "yuvalmil9@gmail.com", "password" : "123456"
+  "name": "or",
+  "email": "orTest@gmail.com",
+  "password": "123456"
 }
-# get All users GET http://localhost:3000/user/All ###
+###
+# get All users
 
-### # get a user by id
+GET http://localhost:3000/user/All
 
-GET http://localhost:3000/user/67448263519e26be35e0ff6f
 
-### PUT http://localhost:3000/user/update Content-Type: application/json
-
-{
-"id": "67448263519e26be35e0ff6f", "name": "John Doe test", "email": "fff@gmail.com"
-}
-# delete a user DELETE http://localhost:3000/user/delete Content-Type: application/json
-
-{"id": "67448263519e26be35e0ff6f"}
 
 ###
+# get a user by id
 
-############################# Posts #################### ### # get all posts GET http://localhost:3000/post/All
+GET http://localhost:3000/user/673f2001d83b05cb85386703
 
-### # get a post by id GET http://localhost:3000/post/6744885af03e5253b89e1823
 
-### # get all posts by sender ID GET http://localhost:3000/post?sender=67448719f03e5253b89e181c
+###
+# update a user 
+PUT http://localhost:3000/user/update
+Content-Type: application/json
 
-### # create a post with NO COMMENTS! POST http://localhost:3000/post/create Content-Type: application/json
+{
+  "id" : "673f2001d83b05cb85386703",
+  "name": "OR",
+  "email": "Evya61992@gmail.com",
+  "password": "123456"
+}
+###
+# delete a user
+DELETE http://localhost:3000/user/delete
+Content-Type: application/json
 
-{ "title": "Post 1", "content": "This post contains concatination and splice",
+{"id": "673f2001d83b05cb85386703"}
+###
 
+############################# Posts ####################
+###
+# get all posts
+GET http://localhost:3000/post/All
+
+
+###
+# get a post by id
+GET http://localhost:3000/post/6742fed892a50acb9a4b24a9
+
+
+###
+# get all posts by sender ID
+GET http://localhost:3000/post?sender=67444aab0874d4c010cb844d
+
+
+###
+# create a post with NO COMMENTS!
+POST http://localhost:3000/post/create
+Content-Type: application/json
+
+{
+ "title": "The Best Post 4444",
+"content": "TESTESTESTEST",
 "comments": [],
-"sender" : "67448719f03e5253b89e181c"
+"sender" : "67444aab0874d4c010cb844d"
 }
-# update a post PUT http://localhost:3000/post/update/6742fed892a50acb9a4b24a9 Content-Type: application/json
-
-{ "title": "Post 1 updated", "content": "This post contains concatination and splice and now it is updated" } ### # delete a post
-
-DELETE http://localhost:3000/post/delete Content-Type: application/json
-
-{"id" : "6744885af03e5253b89e1823"}
-
 ###
 
-############################# Comments #################### ### # get all comments GET http://localhost:3000/comment/All
+# update a post
+PUT http://localhost:3000/post/update/6742fed892a50acb9a4b24a9
+Content-Type: application/json
 
-### # get a comment by ID GET http://localhost:3000/comment/6742ff1f92a50acb9a4b24ac
+{
+  "title": "The Best Post OG",
+"content": "This post contains concatination and splice and now it is updated"
+}
+###
+# delete a post
 
-### # create a comment POST http://localhost:3000/comment/create Content-Type: application/json
+DELETE http://localhost:3000/post/delete
+Content-Type: application/json
 
-{ "userId" : "67448f6f059fb2de1df4e292", "postId" : "67448b3b059fb2de1df4e285", "text" : "test comment" }
+{"id" : "67430ebc6933b7b983dd1f9e"}
+
+
+############################# Comments ####################
+###
+# get all comments
+GET http://localhost:3000/comment/All
+
 
 ###
+# get a comment by ID
+GET http://localhost:3000/comment/6742ff1f92a50acb9a4b24ac
 
-# update a comment by ID PUT http://localhost:3000/comment/update Content-Type: application/json
+###
+# create a comment
+POST http://localhost:3000/comment/create
+Content-Type: application/json
 
-{ "id" : "67448fc2059fb2de1df4e296", "text" : "test 2" }
+{
+  "userId" : "67444aab0874d4c010cb844d",
+  "postId" : "67448b6fd58e80e79314ee75",
+  "text" : "Or you are the biggest man in the world"
+}
+### 
+# update a comment by ID
+PUT http://localhost:3000/comment/update
+Content-Type: application/json
 
-### # delete a comment by ID DELETE http://localhost:3000/comment/delete Content-Type: application/json
+{
+  "id" : "67448c9ed58e80e79314ee7c",
+  "text" : "Or you are the biggest fucking man in the world"
+}
 
-{ "id" : "67448fc2059fb2de1df4e296" }
+###
+# delete a comment by ID
+DELETE http://localhost:3000/comment/delete
+Content-Type: application/json
+
+{
+  "id" : "67448c9ed58e80e79314ee7c"
+}
+###
